@@ -4,13 +4,17 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
 
+import javax.swing.ButtonGroup;
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
+import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.JPasswordField;
+import javax.swing.JRadioButton;
+import javax.swing.JTextArea;
 
 public class Ventana extends JFrame {
 
@@ -21,7 +25,7 @@ public class Ventana extends JFrame {
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
       //this.setSize(500 ,500);
       //this.setLocation(100,100);
-        this.setBounds(200,200,500,500);
+        this.setBounds(200,200,1000,800);
         this.setMinimumSize(new Dimension(200,200));
         this.setMaximumSize(new Dimension(800,800));
         this.setLocationRelativeTo(null);
@@ -32,9 +36,8 @@ public class Ventana extends JFrame {
         this.getContentPane().setBackground(Color.pink);
 
         JPanel login_container = new JPanel();
-        login_container.setSize(400,400);
-        login_container.setLocation(50,50);
-        login_container.setBackground(Color.gray);
+        login_container.setBounds(70,100,400,600);
+        login_container.setBackground(Color.LIGHT_GRAY);
         login_container.setLayout(null);
         this.add(login_container);
 
@@ -42,9 +45,9 @@ public class Ventana extends JFrame {
 
         JLabel tag_title = new JLabel();
         tag_title.setText("Bienvenido");
-        tag_title.setSize(150,30);
-        tag_title.setLocation(125,20);
-        tag_title.setBackground(Color.pink);
+        tag_title.setBounds(100,40,200,50);
+        tag_title.setBackground(new Color(255,192,203));
+        tag_title.setForeground(Color.BLACK);
         tag_title.setOpaque(true);
         tag_title.setFont(new Font("Segoe UI", Font.PLAIN, 18));
         tag_title.setVerticalAlignment(JLabel.CENTER);
@@ -54,44 +57,180 @@ public class Ventana extends JFrame {
         // Email
         JLabel mail_label = new JLabel();
         mail_label.setText("Correo electónico");
-        mail_label.setSize(150,20);
-        mail_label.setLocation(60,80);
-        mail_label.setFont(new Font("Segoe UI", Font.PLAIN, 14));
+        mail_label.setBounds(50,130,300,20);
+        mail_label.setFont(new Font("Segoe UI", Font.PLAIN, 16));
         login_container.add(mail_label);
         
         JTextField email_input = new JTextField();
-        email_input.setSize(280,40);
-        email_input.setLocation(60,100);
+        email_input.setBounds(50,160,300,40);
         login_container.add(email_input);
 
         // Contraseña
         JLabel pass_label = new JLabel();
         pass_label.setText("Contraseña");
-        pass_label.setSize(100,20);
-        pass_label.setLocation(60,140);
-        pass_label.setFont(new Font("Segoe UI", Font.PLAIN, 14));
+        pass_label.setBounds(50,220,300,20);
+        pass_label.setFont(new Font("Segoe UI", Font.PLAIN, 16));
         login_container.add(pass_label);
         
         JPasswordField password_input = new JPasswordField();
-        password_input.setSize(280,40);
-        password_input.setLocation(60,160);
+        password_input.setBounds(50,240,300,40);
         login_container.add(password_input);
 
         // Checkbox
         JCheckBox rememberme = new JCheckBox("Recordarme");
-        rememberme.setSize(140,40);
-        rememberme.setLocation(60,220);
+        rememberme.setBounds(50,300,150,30);
         rememberme.setOpaque(false);
         login_container.add(rememberme);
 
         // Botón
         JButton access_btn = new JButton();
         access_btn.setText("Acceder");
-        access_btn.setSize(150,40);
-        access_btn.setLocation(120,280);
+        access_btn.setBounds(125,360,150,45);
+        access_btn.setOpaque(true);
+        access_btn.setBackground(new Color(255,192,203));
+        access_btn.setForeground(Color.black);
         access_btn.setFont(new Font("Segoe UI", Font.PLAIN, 22));
         login_container.add(access_btn);
-
+        
+        //panel  
+        JPanel register_container= new JPanel();
+        register_container.setBounds(530,100,400,600);
+        register_container.setOpaque(true);
+        register_container.setBackground(Color.LIGHT_GRAY);
+        register_container.setLayout(null);
+        this.add(register_container);
+        
+        //titulo
+        JLabel register_title = new JLabel();
+        register_title.setText("Registro");
+        register_title.setBounds(100,40,200,50);
+        register_title.setBackground(new Color(255,192,203));
+        register_title.setForeground(Color.BLACK);
+        register_title.setOpaque(true);
+        register_title.setFont(new Font("Segoe UI", Font.PLAIN, 18));
+        register_title.setVerticalAlignment(JLabel.CENTER);
+        register_title.setHorizontalAlignment(JLabel.CENTER);
+        register_container.add(register_title);
+        
+        //label name
+        JLabel name_label = new JLabel("Nombre de usuario");
+        name_label.setBounds(50, 120, 300, 35);
+        name_label.setOpaque(true);
+        name_label.setBackground(new Color(255,192,203));
+        name_label.setForeground(Color.BLACK);
+        name_label.setFont(new Font("Segoe UI", Font.PLAIN, 16));
+        register_container.add(name_label);
+        
+        JTextField name_input = new JTextField();
+        name_input.setBounds(50,160,300,40);
+        register_container.add(name_input);
+        
+        
+        
+        //label bio
+        JLabel bio_tag = new JLabel("Bio");
+        bio_tag.setBounds(50,210,300,20);
+        bio_tag.setHorizontalAlignment(JLabel.CENTER);
+        bio_tag.setOpaque(false);
+        register_container.add(bio_tag);
+        
+        
+         // text area
+        
+        JTextArea bio_text = new JTextArea("asd, 10,10");
+        bio_text.setBounds(50,240,300,80);
+        register_container.add(bio_text);
+        
+        
+        //preferencias
+        
+        
+        JLabel pref_label = new JLabel("Preferencias");
+        pref_label.setBounds(50,330,300,20);
+        pref_label.setHorizontalAlignment(JLabel.CENTER);
+        pref_label.setFont(new Font("Segoe UI", Font.PLAIN, 18));
+        register_container.add(pref_label);
+        
+          //check box
+        
+        JCheckBox opt_sweet= new JCheckBox("Dulce");
+        opt_sweet.setBounds(50, 360, 100, 30);
+        opt_sweet.setOpaque(false);
+        register_container.add(opt_sweet);
+        
+        JCheckBox opt_salty = new JCheckBox("Salado");
+        opt_salty.setBounds(150, 360, 100, 30);
+        opt_salty.setOpaque(false);
+        register_container.add(opt_salty);
+        
+        
+        JCheckBox opt_healty =new JCheckBox("Saludable");
+        opt_healty.setOpaque(false);
+        opt_healty.setBounds(250, 360, 100, 30);
+       register_container.add(opt_healty);
+       
+       
+       //terms 
+       JLabel terms_label = new JLabel("Terminos");
+       terms_label.setBounds(50,400,300,20);
+       terms_label.setOpaque(true);
+       terms_label.setBackground(new Color(255,192,203));
+       terms_label.setForeground(Color.BLACK);
+       terms_label.setHorizontalAlignment(JLabel.CENTER);
+       terms_label.setFont(new Font("Segoe UI", Font.PLAIN, 18));
+       register_container.add(terms_label);
+       
+       
+       
+       //  label terms
+       
+       JRadioButton accept_terms = new JRadioButton("Acepto los terminos");
+       accept_terms.setBounds(50, 430, 160, 30);
+       accept_terms.setOpaque(false);
+       register_container.add(accept_terms);
+       
+       JRadioButton reject_terms = new JRadioButton("Rechazo los terminos");
+       reject_terms.setOpaque(false);
+       reject_terms.setBounds(210, 430, 200, 30);
+       register_container.add(reject_terms);
+       
+       ButtonGroup terms = new ButtonGroup();
+       terms.add(accept_terms);
+       terms.add(reject_terms);
+       
+       //combo
+       String[] colonias = {"Camino real" , "Arcoiris", "8 de octubre"};
+       
+       JComboBox colonias_combo = new JComboBox(colonias);
+         colonias_combo.setBounds(50,470,300,30);
+         
+         register_container.add(colonias_combo);
+         
+         //Button
+         
+         JButton register_btn = new JButton ("Crear cuenta");
+         register_btn.setOpaque(true);
+         register_btn.setBackground(new Color(255,192,203));
+         register_btn.setForeground(Color.BLACK);
+         register_btn.setBounds(50, 530, 300, 45);
+        register_container.add(register_btn);
+         
+         
+       
+       
+       
+       
+       
+       
+       
+        
+       
+        
+        
+        
+        
+        
+        
         this.repaint();
     }
 
