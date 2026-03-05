@@ -3,7 +3,10 @@ package practica;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
+import java.awt.Image;
+import java.io.IOException;
 
+import javax.imageio.ImageIO;
 import javax.swing.ButtonGroup;
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
@@ -40,6 +43,18 @@ public class Ventana extends JFrame {
       	//this.setOpacity(1);
         this.getContentPane().setBackground(Color.pink);
         
+        try {
+        	
+        	Image IconImage = ImageIO.read(getClass().getResource("/imagen/black-cat.png"));
+        	
+        	this.setIconImage(IconImage);
+        	
+        } catch (IOException e) {
+        	
+        	e.printStackTrace();
+        	      	
+        }
+        
         JMenuBar barra = new JMenuBar();
         this.setJMenuBar(barra);
         
@@ -66,15 +81,7 @@ public class Ventana extends JFrame {
         JMenuItem opt5_mi = new JMenuItem("Guardar como");
         menu2.add(opt5_mi);
         
-       
-      
-        
-        
-        
-        
-     
-        
-        
+             
         //this.login();
         //this.registro();
        this.setVisible(true);
