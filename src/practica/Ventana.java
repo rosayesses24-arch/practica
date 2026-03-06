@@ -7,6 +7,7 @@ import java.awt.Image;
 import java.io.IOException;
 
 import javax.imageio.ImageIO;
+import javax.swing.BorderFactory;
 import javax.swing.ButtonGroup;
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
@@ -84,9 +85,10 @@ public class Ventana extends JFrame {
              
         //this.login();
         //this.registro();
+        this.calculadora();
        this.setVisible(true);
         
-        this.users();
+        //this.users();
         this.repaint();
     
     }
@@ -313,6 +315,47 @@ public class Ventana extends JFrame {
     
               
     }
+    	
+    	public void calculadora() {
+    		
+    		JPanel panel_users= new JPanel();
+    		panel_users.setSize(500,500);
+    		panel_users.setLocation(250,50);
+    		panel_users.setBackground(Color.decode("#DDDEA6"));
+    		panel_users.setLayout(null);
+    		this.add(panel_users);
+    		
+    		
+    		JLabel field = new JLabel("180,00");
+    		field.setSize(480,40);
+    		field.setLocation(10,10);
+    		field.setOpaque(true);
+    		field.setBackground(Color.WHITE);
+    		field.setFont(new Font("Arial", Font.BOLD,22));
+    		field.setBorder(BorderFactory.createEmptyBorder(10,20,10,20));
+    		panel_users.add(field);
+    		
+    		int cor_x = 30, cor_y = 60;
+    		String [] botones = {"CE", "", "", "","7","8","9","/","4","5","6","*","1","2","3", "+","0",".","-","="};
+    		
+    		for(int i = 0; i < 20; i++) {
+    		
+    		JButton ce = new JButton(botones[i]);
+    		ce.setSize(100,100);
+    		ce.setLocation(cor_x, cor_y);
+    		
+    		cor_x += 110;
+    		panel_users.add(ce);
+    		
+    		if(cor_x >= 420) {
+    			cor_x = 30;
+    			cor_y += 110;
+    			
+    		}
+    		
+    	}
+    	
+    		  	}
 
     public static void main(String[] args) {
         new Ventana();
