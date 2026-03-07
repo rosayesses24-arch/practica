@@ -1,8 +1,10 @@
 package practica;
 
+import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
+import java.awt.GridLayout;
 import java.awt.Image;
 import java.io.IOException;
 
@@ -85,7 +87,8 @@ public class Ventana extends JFrame {
              
         //this.login();
         //this.registro();
-        this.calculadora();
+        //this.calculadora();
+        this.calculadora_layout();
        this.setVisible(true);
         
         //this.users();
@@ -314,7 +317,7 @@ public class Ventana extends JFrame {
     		
     
               
-    }
+       }
     	
     	public void calculadora() {
     		
@@ -355,7 +358,75 @@ public class Ventana extends JFrame {
     		
     	}
     	
-    		  	}
+    }
+    	public void calculadora_layout() {
+    		
+    		JPanel panel_users = new JPanel();
+    		panel_users.setSize(500,700);
+    		panel_users.setLocation(250,50);
+    		panel_users.setBackground(Color.decode("#DDDEA6"));
+    		panel_users.setLayout(null);
+    		this.add(panel_users);
+    		
+    		BorderLayout mi_layout = new BorderLayout();
+    		mi_layout.setVgap(20);
+    		
+    		panel_users.setLayout(mi_layout);
+    		this.add(panel_users);
+    		
+    		
+    		JLabel field = new JLabel("180.00");
+    		field.setOpaque(true);
+    	    field.setBackground(Color.WHITE);
+    	    field.setFont(new Font("Segoe UI", Font.BOLD, 22));
+    	    field.setBorder(BorderFactory.createEmptyBorder(10,20,10,20));
+    	    panel_users.add(field,BorderLayout.NORTH);
+    	    
+    	    JPanel centro = new JPanel();
+    	    centro.setBackground(Color.gray);
+    	    centro.setLayout(new GridLayout (4,3));
+    	    panel_users.add(centro,BorderLayout.CENTER);
+    	    
+    	    String [] botones = {"9","8","7","6","5","4","3","2","1","0","."};
+    	    
+    	    for (int i = 0; i < botones.length; i++) {
+    	    
+    	    JButton ce = new JButton(botones[i]);
+    	    ce.setSize(100,100);
+    	    ce.setFont(new Font("Arial",Font.BOLD,22));
+    	    centro.add(ce);
+    	    
+    	   
+    	    }
+    	    
+    	    JPanel sidebar = new JPanel();
+    	    sidebar.setBackground(Color.black);
+    	    sidebar.setLayout(new GridLayout(6,1));
+    	    panel_users.add(sidebar,BorderLayout.EAST);
+    	    
+    	    String [] botones2 = {"+","-","*","/","=","CE"};
+    	    
+    	    for (int i = 0; i < botones2.length; i++) {
+    	    	 JButton ce = new JButton(botones[i]);
+    	    	  ce.setSize(100,100);
+    	    	  ce.setFont(new Font("Arial",Font.BOLD,22));
+    	    	  centro.add(ce);
+    	    	
+    	    	
+    	    }
+    	    
+    	    
+    	    
+    	    
+    	    
+    	    
+    	     
+    		
+    		
+    		
+    		
+    		
+    	}
 
     public static void main(String[] args) {
         new Ventana();
