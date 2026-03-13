@@ -1,11 +1,16 @@
 package practica;
 
+import java.awt.BasicStroke;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
 import java.awt.GridLayout;
 import java.awt.Image;
+import java.awt.image.BufferedImage;
+import java.io.File;
 import java.io.IOException;
 
 import javax.imageio.ImageIO;
@@ -88,12 +93,72 @@ public class Ventana extends JFrame {
         //this.login();
         //this.registro();
         //this.calculadora();
-        this.calculadora_layout();
-       this.setVisible(true);
+        //this.calculadora_layout();
+        this.pintar();
+        
+        this.setVisible(true);
         
         //this.users();
         this.repaint();
     
+    }
+    
+
+    public void pintar() {
+    	
+    	JPanel pane = new JPanel(){
+    		@Override
+    		
+    		protected void paintComponent(Graphics g) {
+    			super.paintComponents(g);
+
+    			
+    			Graphics2D g2d = (Graphics2D) g;
+    			
+    			g2d.drawLine(0, 0, 1000,700);
+    			
+    			g2d.setColor(Color.ORANGE);
+    			g2d.drawOval(100, 100, 150, 50);
+    			
+    			g2d.setStroke(new BasicStroke(3));
+    			g2d.setColor(Color.MAGENTA);
+    			g2d.drawPolygon(new int[] {300,100,500}, new int[] {100,300,300},3);
+    			
+    			g2d.drawRect(250, 300, 100, 100);
+    			g2d.drawRoundRect(500,150,100,100,10,10);
+    			
+    			g2d.drawArc(400, 100, 100, 100, 0, 90);
+    			
+    			g2d.setFont(new Font("Arial",Font.BOLD,22));
+    			g2d.drawString("Hola",100,100);
+    			
+    			g2d.setColor(Color.black);
+    			g2d.fillOval(500, 50, 50, 50);
+    			
+    			g2d.fillPolygon(new int[] {500,300,700}, new int[] {300,500,500},3);
+    			
+    			g2d.fillRect(550, 500, 100, 100);
+    			
+    			g2d.setColor(Color.orange);
+    			g2d.fillRoundRect(500, 500, 100, 100, 10, 10);
+    			
+    			g2d.fillArc(450, 150, 100, 100, 0, 300);
+    			
+    			BufferedImage image;
+				try {
+					image = ImageIO.read(new File("src/imagen/black-cat.png"));
+					g2d.drawImage(image, 0, 0, null);
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+    			
+    			
+    		}
+    	};
+    	pane.setSize(1000,700);
+    	pane.setLocation(0,0);
+    	this.add(pane);
     }
 
        public void login() {
