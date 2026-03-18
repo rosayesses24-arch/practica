@@ -94,7 +94,8 @@ public class Ventana extends JFrame {
         //this.registro();
         //this.calculadora();
         //this.calculadora_layout();
-        this.pintar();
+        //this.pintar();
+        this.Dibujo();
         
         this.setVisible(true);
         
@@ -476,22 +477,88 @@ public class Ventana extends JFrame {
     	    	  ce.setSize(100,100);
     	    	  ce.setFont(new Font("Arial",Font.BOLD,22));
     	    	  centro.add(ce);
+    	    }
     	    	
     	    	
     	    }
+
     	    
+    	    	
+    	
+    	
+    	public void Dibujo() {
     	    
-    	    
-    	    
-    	    
-    	    
-    	     
-    		
-    		
-    		
-    		
-    		
+    	    JPanel pane = new JPanel() {
+    	        @Override
+    	        protected void paintComponent(Graphics g) {
+    	            super.paintComponent(g); // ojo: aquí era paintComponent
+
+    	            Graphics2D g2d = (Graphics2D) g;
+
+    	         
+    	            g2d.setColor(new Color(173, 216, 230));
+    	            g2d.fillRect(0, 0, 1000, 700);
+
+    	          
+    	            g2d.setColor(new Color(34, 139, 34));
+    	            g2d.fillRect(0, 400, 1000, 100);
+
+    	            
+    	            g2d.setColor(new Color(139, 69, 19));
+    	            g2d.fillRect(0, 500, 1000, 200);
+
+    	            
+    	            g2d.setColor(new Color(240, 220, 130));
+    	            g2d.fillRect(350, 250, 250, 180);
+
+    	           
+    	            g2d.setColor(Color.RED);
+    	            g2d.fillPolygon(
+    	                new int[]{330, 475, 620},
+    	                new int[]{250, 150, 250},3 );
+    	            
+    	            g2d.setColor(new Color(101, 67, 33));
+    	            g2d.fillRect(400, 300, 70, 130);
+
+    	            
+    	            g2d.setColor(Color.WHITE);
+    	            g2d.fillOval(455, 360, 10, 10);
+
+    	            
+    	            g2d.setColor(new Color(173, 216, 230));
+    	            g2d.fillRect(500, 300, 80, 80);
+
+    	           
+    	            g2d.setColor(Color.BLACK);
+    	            g2d.drawLine(540, 300, 540, 380);
+    	            g2d.drawLine(500, 340, 580, 340);
+
+    	            
+    	            g2d.setColor(Color.GRAY);
+    	            g2d.fillRect(520, 170, 40, 80);
+    	            
+    	            g2d.setColor(new Color(222, 184, 135));
+
+    	            for (int i = 0; i < 1000; i += 30) {
+    	                g2d.fillRect(i, 350, 15, 70);
+    	            }
+
+    	  
+    	            g2d.setColor(new Color(160, 120, 70));
+    	            g2d.fillRect(0, 370, 1000, 10);
+    	            g2d.fillRect(0, 400, 1000, 10);
+
+    	        }
+    	    };
+
+    	    JFrame frame = new JFrame("Casa con cerco");
+    	    frame.add(pane);
+    	    frame.setSize(1000, 700);
+    	    frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    	    frame.setLocationRelativeTo(null);
+    	    frame.setVisible(true);
     	}
+    	    		 
 
     public static void main(String[] args) {
         new Ventana();
